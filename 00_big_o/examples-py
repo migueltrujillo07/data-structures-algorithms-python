@@ -1,0 +1,52 @@
+"""
+Big-O Examples in Python
+"""
+
+# O(1) - Constant Time
+def get_first_element(arr):
+    return arr[0]
+
+
+# O(n) - Linear Time
+def print_elements(arr):
+    for element in arr:
+        print(element)
+
+
+# O(n^2) - Quadratic Time
+def print_pairs(arr):
+    for i in arr:
+        for j in arr:
+            print(i, j)
+
+
+# O(log n) - Logarithmic Time (Binary Search)
+def binary_search(arr, target):
+    left, right = 0, len(arr) - 1
+
+    while left <= right:
+        mid = (left + right) // 2
+
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+
+    return -1
+
+
+# Example usage
+if __name__ == "__main__":
+    nums = [1, 2, 3, 4, 5]
+
+    print("O(1):", get_first_element(nums))
+    print("O(n):")
+    print_elements(nums)
+
+    print("O(n^2):")
+    print_pairs(nums)
+
+    print("O(log n): Binary Search result:",
+          binary_search(nums, 4))
